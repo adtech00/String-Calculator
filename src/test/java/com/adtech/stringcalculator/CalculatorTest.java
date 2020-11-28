@@ -63,11 +63,16 @@ public class CalculatorTest {
     @Test
     public void unSupportedNeg(){
         try{
-            int res = calculatorService.add("-1,2");
+            int res = calculatorService.add("-1,2,-4");
             fail("Exception Expected.");
         }catch (Exception e){
-            assertEquals("Negative Nums Not Allowed: [-1]", e.getMessage());
+            assertEquals("Negative Nums Not Allowed: [-1, -4]", e.getMessage());
         }
     }
 
+    @Test
+    public void bigNumHasNoVal() throws Exception {
+        int res = calculatorService.add("2,1001");
+        assertEquals(2,res);
+    }
 }

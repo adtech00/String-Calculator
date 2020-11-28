@@ -37,7 +37,9 @@ public class CalculatorService {
                     throw new Exception("Negative Nums Not Allowed: "+ Arrays.toString(negatives));
                 }
 
-                int sum = Arrays.stream(intArr).sum();
+                //Nums greater than 1000 will be ignored
+                int[] sumArr = Arrays.stream(intArr).filter(i -> i < 1001).toArray();
+                int sum = Arrays.stream(sumArr).sum();
                 return sum;
             }else {
                 return toInt(numbers);
