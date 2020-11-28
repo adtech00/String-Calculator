@@ -20,7 +20,7 @@ public class CalculatorService {
                 StringBuilder cleanedNums=new StringBuilder();
                 for (String del:calculatorConstants.DELIMITERS) {
                     if (numbers.contains(del)){
-                        numbers=numbers.replaceAll(del,";").trim();
+                        numbers=numbers.replace(del,";").trim();
                     }
                 }
 

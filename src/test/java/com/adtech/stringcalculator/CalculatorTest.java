@@ -75,4 +75,10 @@ public class CalculatorTest {
         int res = calculatorService.add("2,1001");
         assertEquals(2,res);
     }
+
+    @Test
+    public void delimiterAnyLength() throws Exception {
+        int res = calculatorService.add("//[***]\\n1***2***3");
+        assertEquals(6,res);
+    }
 }
