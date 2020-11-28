@@ -12,7 +12,7 @@ public class CalculatorService {
     @Autowired
     private CalculatorConstants calculatorConstants;
 
-    public int add(String numbers){
+    public int add(String numbers) throws Exception {
         if(numbers.trim().isEmpty()){
             return 0;
         }else{
@@ -31,6 +31,12 @@ public class CalculatorService {
                 //todo:remove after result conf
                 String [] finalNumStr=numbers.split(";");
                 int[] intArr=Arrays.asList(finalNumStr).stream().mapToInt(Integer::parseInt).toArray();
+
+                int[] negatives = Arrays.stream(intArr).filter(i -> i < 0).toArray();
+                if (negatives.length>0){
+                    throw new Exception("Negative Nums Not Allowed: "+ Arrays.toString(negatives));
+                }
+
                 int sum = Arrays.stream(intArr).sum();
                 return sum;
             }else {
