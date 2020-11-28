@@ -20,9 +20,13 @@ public class CalculatorService {
                 StringBuilder cleanedNums=new StringBuilder();
                 for (String del:calculatorConstants.DELIMITERS) {
                     if (numbers.contains(del)){
-                        numbers=numbers.replaceAll(del,";");
+                        numbers=numbers.replaceAll(del,";").trim();
                     }
                 }
+
+                numbers=numbers.replaceAll(";{2,}", ";")
+                        .replaceAll("(^;)","")
+                        .replaceAll("(;$)","").trim();
 
                 //todo:remove after result conf
                 String [] finalNumStr=numbers.split(";");

@@ -47,4 +47,16 @@ public class CalculatorTest {
         assertEquals(100,res);
     }
 
+    @Test
+    public void newLinesValidDelimiter(){
+        int res = calculatorService.add("11,2\n7,80");
+        assertEquals(100,res);
+    }
+
+    @Test
+    public void supportDiffDelimiter(){
+        int res = calculatorService.add("//;\n1;2");
+        assertEquals(3,res);
+    }
+
 }
