@@ -78,13 +78,13 @@ public class CalculatorTest {
 
     @Test
     public void delimiterAnyLength() throws Exception {
-        int res = calculatorService.add("//[***]\\n1***2***3");
+        int res = calculatorService.add("//[***]\n1***2***3");
         assertEquals(6,res);
     }
 
     @Test
     public void multipleDelimiter() throws Exception {
-        int res = calculatorService.add("//[*][%]\\n1*2%3");
+        int res = calculatorService.add("//[*][%]\n1*2%3");
         assertEquals(6,res);
     }
 }
