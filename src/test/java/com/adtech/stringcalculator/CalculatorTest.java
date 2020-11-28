@@ -35,4 +35,16 @@ public class CalculatorTest {
         assertEquals(16, res);
     }
 
+    @Test
+    public void commaSeparatedSum(){
+        int res = calculatorService.add("11,2");
+        assertEquals(13,res);
+    }
+
+    @Test
+    public void sumMultipleNums(){
+        int res = calculatorService.add("11,2,7,80");
+        assertEquals(100,res);
+    }
+
 }

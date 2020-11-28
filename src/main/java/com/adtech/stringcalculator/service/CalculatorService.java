@@ -19,7 +19,9 @@ public class CalculatorService {
             if (containsItemFromArray(numbers, calculatorConstants.DELIMITERS)){
                 StringBuilder cleanedNums=new StringBuilder();
                 for (String del:calculatorConstants.DELIMITERS) {
-                    numbers=numbers.replaceAll(del,";");
+                    if (numbers.contains(del)){
+                        numbers=numbers.replaceAll(del,";");
+                    }
                 }
 
                 //todo:remove after result conf
